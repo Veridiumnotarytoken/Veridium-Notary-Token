@@ -7,9 +7,8 @@ setup(
     packages=find_packages(),
     install_requires=[
         'cryptography>=41.0.0',
-        'pycryptodome>=3.19.0',
         'canonicaljson>=2.0.0',
-        'multibase>=0.3.0',
+        'base58>=2.1.0',
         'pydantic>=2.0.0',
     ],
     python_requires='>=3.9',
