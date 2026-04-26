@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 from typing import Dict, Any, Tuple
 from canonicaljson import encode_canonical_json
-from Crypto.Hash import SHA3_256
+import hashlib
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
 import base58
 from .utils import did_to_public_key
@@ -10,9 +10,8 @@ from .utils import did_to_public_key
 def recompute_content_hash(claim: Dict[str, str]) -> str:
     """Recompute SHA3-256 hash of canonicalized claim"""
     canonical = encode_canonical_json(claim)
-    h = SHA3_256.new()
-    h.update(canonical)
-    return '0x' + h.hexdigest()
+    hash_obj = hashlib.sha3_256(canonical)
+    return '0x' + hash_obj.hexdigest()
 
 def verify_vnt(token: Dict[str, Any]) -> Tuple[bool, Dict[str, bool], list]:
     """Verify a VNT token offline"""
@@ -41,8 +40,8 @@ def verify_vnt(token: Dict[str, Any]) -> Tuple[bool, Dict[str, bool], list]:
     canonical_payload = encode_canonical_json(token)
     token['proof'] = proof
     
-    # Decode signature from base58
-    signature_bytes = base58.b58decode(proof['proofValue'][1:])  # Remove 'z' prefix
+    # Decode signature from base58 (remove 'z' prefix)
+    signature_bytes = base58.b58decode(proof['proofValue'][1:])
     public_key_bytes = did_to_public_key(token['issuer']['id'])
     public_key = Ed25519PublicKey.from_public_bytes(public_key_bytes)
     
