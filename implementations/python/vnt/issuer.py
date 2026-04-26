@@ -4,7 +4,7 @@ from typing import Dict, Any
 from canonicaljson import encode_canonical_json
 from Crypto.Hash import SHA3_256
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
-from multibase import encode
+import base58
 from .utils import public_key_to_did
 
 def create_vnt(
@@ -17,14 +17,19 @@ def create_vnt(
     expiration_date: str,
     private_key: Ed25519PrivateKey,
 ) -> Dict[str, Any]:
+    """Create a new signed VNT token"""
+    
+    # Compute content hash
     canonical_claim = encode_canonical_json(claim)
     h = SHA3_256.new()
     h.update(canonical_claim)
     content_hash = '0x' + h.hexdigest()
     
+    # Get DID from public key
     public_key = private_key.public_key()
     did = public_key_to_did(public_key)
     
+    # Build unsigned token
     unsigned = {
         'id': token_id,
         'type': 'VerifiableCredential',
@@ -43,10 +48,14 @@ def create_vnt(
         'expirationDate': expiration_date,
     }
     
+    # Sign the payload
     canonical_payload = encode_canonical_json(unsigned)
     signature = private_key.sign(canonical_payload)
-    proof_value = encode('base58btc', signature).decode('ascii')
     
+    # Encode signature with base58 and add 'z' prefix
+    proof_value = 'z' + base58.b58encode(signature).decode('ascii')
+    
+    # Add proof
     proof = {
         'type': 'Ed25519Signature2020',
         'proofPurpose': 'assertionMethod',
