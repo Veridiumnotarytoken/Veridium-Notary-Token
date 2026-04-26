@@ -25,11 +25,5 @@
   "signatureTimestamp": "2025-01-15T10:00:00Z",
   "verificationMethod": "human-expert",
   "verificationScore": 0.98,
-  "expirationDate": "2026-01-15T10:00:00Z",
-  "mmrIndex": 42,
-  "mmrRoot": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef12345678",
-  "inclusionProof": [
-    "0x1111111111111111111111111111111111111111111111111111111111111111",
-    "0x2222222222222222222222222222222222222222222222222222222222222222"
-  ]
+  "expirationDate": "2026-01-15T10:00:00Z"
 }
