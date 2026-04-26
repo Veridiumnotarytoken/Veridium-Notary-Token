@@ -1,0 +1,35 @@
+{
+  "id": "https://veridium.io/vnt/tok_gold_example",
+  "type": "VerifiableCredential",
+  "credentialSubject": {
+    "claim": {
+      "subject": "Elebia EVO10 Hook",
+      "predicate": "has maximum working load",
+      "object": "10,000 kg"
+    },
+    "contentHash": "0xecf633e50d1a7483e126ba80ebce601e1da752ddee91c8a46ef0dd55ac469b3a"
+  },
+  "issuer": {
+    "id": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+    "name": "Veridium",
+    "tier": "gold",
+    "reputation": 5.0
+  },
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+    "created": "2025-01-15T10:00:00Z",
+    "proofValue": "z59FgMFEDyCcoWXN7BjYcTbzY45bztByMNXbbWrU7wLUBabZ86nRQBQgMNLjRpHN5hfwzL8jMLQUYKbgR7wTvi7pVpPz2PjysJXTMhM6eLr"
+  },
+  "signatureTimestamp": "2025-01-15T10:00:00Z",
+  "verificationMethod": "human-expert",
+  "verificationScore": 0.98,
+  "expirationDate": "2026-01-15T10:00:00Z",
+  "mmrIndex": 42,
+  "mmrRoot": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef12345678",
+  "inclusionProof": [
+    "0x1111111111111111111111111111111111111111111111111111111111111111",
+    "0x2222222222222222222222222222222222222222222222222222222222222222"
+  ]
+}

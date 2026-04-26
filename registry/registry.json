@@ -1,0 +1,15 @@
+{
+  "registry_version": "1.0",
+  "updated": "2025-01-15T12:00:00Z",
+  "issuers": [
+    {
+      "id": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+      "domain": "veridium.io",
+      "name": "Veridium Foundation",
+      "tier": "founding",
+      "reputation": 5.0,
+      "status": "active",
+      "added": "2025-01-15"
+    }
+  ]
+}

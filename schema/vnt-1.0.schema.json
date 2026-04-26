@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://veridium.io/schemas/vnt-1.0.schema.json",
+  "title": "VNT 1.0",
+  "description": "Veridium Notary Token - open claim credential",
+  "type": "object",
+  "required": [
+    "id", "type", "credentialSubject", "issuer", "proof",
+    "signatureTimestamp", "verificationMethod", "verificationScore", "expirationDate"
+  ],
+  "properties": {
+    "id": { "type": "string", "format": "uri" },
+    "type": { "const": "VerifiableCredential" },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "claim": {
+          "type": "object",
+          "properties": {
+            "subject": { "type": "string" },
+            "predicate": { "type": "string" },
+            "object": { "type": "string" }
+          },
+          "required": ["subject", "predicate", "object"],
+          "additionalProperties": false
+        },
+        "contentHash": { "type": "string", "pattern": "^0x[a-fA-F0-9]{64}$" }
+      },
+      "required": ["claim", "contentHash"],
+      "additionalProperties": false
+    },
+    "issuer": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "pattern": "^did:key:z[1-9A-HJ-NP-Za-km-z]+$" },
+        "name": { "type": "string" },
+        "tier": { "enum": ["gold", "silver", "bronze", "founding"] },
+        "reputation": { "type": "number", "minimum": 0, "maximum": 5 }
+      },
+      "required": ["id", "name", "tier"]
+    },
+    "proof": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "Ed25519Signature2020" },
+        "proofPurpose": { "const": "assertionMethod" },
+        "verificationMethod": { "type": "string", "pattern": "^did:key:z" },
+        "created": { "type": "string", "format": "date-time" },
+        "proofValue": { "type": "string", "pattern": "^z[1-9A-HJ-NP-Za-km-z]+$" }
+      },
+      "required": ["type", "proofPurpose", "verificationMethod", "created", "proofValue"],
+      "additionalProperties": false
+    },
+    "signatureTimestamp": { "type": "string", "format": "date-time" },
+    "verificationMethod": { "enum": ["human-expert", "ai-verified", "self-declared"] },
+    "verificationScore": { "type": "number", "minimum": 0, "maximum": 1 },
+    "expirationDate": { "type": "string", "format": "date-time" },
+    "mmrIndex": { "type": "integer", "minimum": 0 },
+    "mmrRoot": { "type": "string", "pattern": "^0x[a-fA-F0-9]{64}$" },
+    "inclusionProof": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^0x[a-fA-F0-9]{64}$" }
+    },
+    "blockchainAnchor": {
+      "type": "object",
+      "properties": {
+        "network": { "type": "string" },
+        "txHash": { "type": "string", "pattern": "^0x[a-fA-F0-9]{64}$" },
+        "blockNumber": { "type": "integer" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["network", "txHash", "blockNumber", "timestamp"],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

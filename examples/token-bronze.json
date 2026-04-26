@@ -1,0 +1,28 @@
+{
+  "id": "https://veridium.io/vnt/tok_bronze_example",
+  "type": "VerifiableCredential",
+  "credentialSubject": {
+    "claim": {
+      "subject": "My Product X",
+      "predicate": "is user-rated",
+      "object": "4.5 stars"
+    },
+    "contentHash": "0x9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b"
+  },
+  "issuer": {
+    "id": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+    "name": "Anonymous User",
+    "tier": "bronze"
+  },
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+    "created": "2025-01-15T12:00:00Z",
+    "proofValue": "z5KjHhVrU2Mmq2XMn8Tf2u7QK1KLdR9Wp2Z2u2sX3c3r3p3q3o3n3mL3k3j3i3h3g3f3e"
+  },
+  "signatureTimestamp": "2025-01-15T12:00:00Z",
+  "verificationMethod": "self-declared",
+  "verificationScore": 0.5,
+  "expirationDate": "2025-04-15T12:00:00Z"
+}

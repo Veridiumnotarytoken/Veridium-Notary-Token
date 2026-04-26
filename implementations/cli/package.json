@@ -1,0 +1,14 @@
+{
+  "name": "@veridium/vnt-cli",
+  "version": "1.0.0",
+  "description": "CLI for Veridium Notary Token (VNT)",
+  "bin": {
+    "vnt": "./bin/vnt"
+  },
+  "dependencies": {
+    "@veridium/vnt": "file:../typescript",
+    "commander": "^11.0.0",
+    "inquirer": "^8.2.6"
+  },
+  "license": "CC0-1.0"
+}

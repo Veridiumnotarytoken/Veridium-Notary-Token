@@ -1,0 +1,28 @@
+{
+  "id": "https://veridium.io/vnt/tok_silver_example",
+  "type": "VerifiableCredential",
+  "credentialSubject": {
+    "claim": {
+      "subject": "Gemini Flash 2.0",
+      "predicate": "achieves MMLU score",
+      "object": "82.4%"
+    },
+    "contentHash": "0x7b8f3a2c1d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a"
+  },
+  "issuer": {
+    "id": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+    "name": "Veridium AI Lab",
+    "tier": "silver"
+  },
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+    "created": "2025-01-15T11:00:00Z",
+    "proofValue": "z4wHp2Hd6kS2U2Sd3gS2z7RrM2MihsO2kR2zR2sW2b2q2o2p2n2m2l2k2j2i2h2g"
+  },
+  "signatureTimestamp": "2025-01-15T11:00:00Z",
+  "verificationMethod": "ai-verified",
+  "verificationScore": 0.94,
+  "expirationDate": "2025-07-15T11:00:00Z"
+}
