@@ -2,7 +2,7 @@ import secrets
 from datetime import datetime
 from typing import Dict, Any
 from canonicaljson import encode_canonical_json
-from Crypto.Hash import SHA3_256
+import hashlib
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 import base58
 from .utils import public_key_to_did
@@ -21,9 +21,8 @@ def create_vnt(
     
     # Compute content hash
     canonical_claim = encode_canonical_json(claim)
-    h = SHA3_256.new()
-    h.update(canonical_claim)
-    content_hash = '0x' + h.hexdigest()
+    hash_obj = hashlib.sha3_256(canonical_claim)
+    content_hash = '0x' + hash_obj.hexdigest()
     
     # Get DID from public key
     public_key = private_key.public_key()
