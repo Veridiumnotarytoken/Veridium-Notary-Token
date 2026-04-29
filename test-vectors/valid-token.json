@@ -7,23 +7,23 @@
       "predicate": "has maximum working load",
       "object": "10,000 kg"
     },
-    "contentHash": "0xecf633e50d1a7483e126ba80ebce601e1da752ddee91c8a46ef0dd55ac469b3a"
+    "contentHash": "0x32ac18f96e22b7550bcc850132db32c5948ec4c496120dc19c962218c5796dde"
   },
   "issuer": {
-    "id": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+    "id": "did:key:z6MkneMkZqwqRiU5mJzSG3kDwzt9P8C59N4NGTfBLfSGE7c7",
     "name": "Veridium",
     "tier": "gold",
-    "reputation": 5.0
-  },
-  "proof": {
-    "type": "Ed25519Signature2020",
-    "proofPurpose": "assertionMethod",
-    "verificationMethod": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
-    "created": "2025-01-15T10:00:00Z",
-    "proofValue": "z59FgMFEDyCcoWXN7BjYcTbzY45bztByMNXbbWrU7wLUBabZ86nRQBQgMNLjRpHN5hfwzL8jMLQUYKbgR7wTvi7pVpPz2PjysJXTMhM6eLq"
+    "reputation": 5
   },
   "signatureTimestamp": "2025-01-15T10:00:00Z",
   "verificationMethod": "human-expert",
   "verificationScore": 0.98,
-  "expirationDate": "2026-01-15T10:00:00Z"
+  "expirationDate": "2027-01-15T10:00:00Z",
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6MkneMkZqwqRiU5mJzSG3kDwzt9P8C59N4NGTfBLfSGE7c7",
+    "created": "2025-01-15T10:00:00Z",
+    "proofValue": "z5XYaU7dLyF2qVqNmXk5rgrRctTVoDY2UgX6W7fatoj9hHaWHmfTPVBGngMrh6eAfNRjpBT9MRHvKY5TW7TrWMWDr"
+  }
 }
