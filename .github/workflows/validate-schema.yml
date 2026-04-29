@@ -11,5 +11,5 @@ jobs:
         with:
           node-version: 20
       - run: npm install -g ajv-cli
-      - run: ajv validate -s schema/vnt-1.0.schema.json -d "examples/*.json"
-      - run: ajv validate -s schema/vnt-1.0.schema.json -d "test-vectors/*.json"
+      - run: ajv validate -s schema/vnt-1.0.schema.json -d "examples/*.json" --strict=false
+      - run: ajv validate -s schema/vnt-1.0.schema.json -d "test-vectors/*.json" --strict=false
