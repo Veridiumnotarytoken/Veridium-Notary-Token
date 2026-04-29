@@ -1,5 +1,5 @@
 import { verifyVNT, createVNT } from '../src';
- 
+
 describe('VNT Tests', () => {
   const validToken: any = {
     "id": "https://veridium.io/vnt/tok_gold_example",
@@ -16,7 +16,6 @@ describe('VNT Tests', () => {
       "id": "did:key:z6MkneMkZqwqRiU5mJzSG3kDwzt9P8C59N4NGTfBLfSGE7c7",
       "name": "Veridium",
       "tier": "gold",
-      "reputation": 5.0
     },
     "signatureTimestamp": "2025-01-15T10:00:00Z",
     "verificationMethod": "human-expert",
@@ -27,29 +26,29 @@ describe('VNT Tests', () => {
       "proofPurpose": "assertionMethod",
       "verificationMethod": "did:key:z6MkneMkZqwqRiU5mJzSG3kDwzt9P8C59N4NGTfBLfSGE7c7",
       "created": "2025-01-15T10:00:00Z",
-      "proofValue": "z5XYaU7dLyF2qVqNmXk5rgrRctTVoDY2UgX6W7fatoj9hHaWHmfTPVBGngMrh6eAfNRjpBT9MRHvKY5TW7TrWMWDr"
+      "proofValue": "z5v9tYwqAMJy1aiaam2fDTE73Se9kRRDJMroqkESqqnWyrrDmeZtnjKfYnzR6VN1jpRhLpmaR7aX2TixGm1u56xbD"
     }
   };
- 
+
   test('valid token passes verification', async () => {
     const result = await verifyVNT(validToken);
     expect(result.valid).toBe(true);
   });
- 
+
   test('invalid signature fails', async () => {
     const invalidToken = JSON.parse(JSON.stringify(validToken));
     invalidToken.proof.proofValue = invalidToken.proof.proofValue.slice(0, -10) + 'InvalidSig';
     const result = await verifyVNT(invalidToken);
     expect(result.valid).toBe(false);
   });
- 
+
   test('tampered claim fails content hash', async () => {
     const tamperedToken = JSON.parse(JSON.stringify(validToken));
     tamperedToken.credentialSubject.claim.object = "9,000 kg";
     const result = await verifyVNT(tamperedToken);
     expect(result.valid).toBe(false);
   });
- 
+
   test('create and verify new token', async () => {
     const privateKey = new Uint8Array(32);
     for (let i = 0; i < 32; i++) privateKey[i] = i;
